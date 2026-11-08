@@ -1,0 +1,297 @@
+/* ==========================================================================
+   TAPTCH — MINIMAL COMING SOON
+   Design: Apple meets Linear
+   ========================================================================== */
+
+:root {
+  --color-white: #FFFFFF;
+  --color-black: #101114;
+  --color-blue: #1677FF;
+  --color-blue-hover: #1466dc;
+  --color-blue-active: #0f58c7;
+  --color-grey: #858B98;
+  --color-border-subtle: rgba(16, 17, 20, 0.08);
+  --color-backdrop: rgba(16, 17, 20, 0.32);
+  --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  height: 100svh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-stack);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Page Layout: Centered vertically and horizontally within 100svh */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  height: 100svh;
+  height: 100dvh;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 1.5rem 1.5rem max(1.5rem, env(safe-area-inset-bottom)) 1.5rem;
+}
+
+.top-spacer {
+  flex: 1 1 0%;
+  min-height: 0;
+  width: 100%;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 0 0 auto;
+  text-align: center;
+  max-width: 44rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Introductory Text */
+.intro-text {
+  font-size: clamp(0.8125rem, 0.77rem + 0.22vw, 0.9375rem);
+  font-weight: 500;
+  color: var(--color-grey);
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
+  line-height: 1.4;
+}
+
+/* Main Headline */
+.headline {
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--color-black);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
+}
+
+/* Supporting Text */
+.supporting-text {
+  font-size: clamp(0.9375rem, 0.88rem + 0.28vw, 1.0625rem);
+  font-weight: 400;
+  color: var(--color-grey);
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+  margin-bottom: clamp(1.75rem, 3.5vh, 2.25rem);
+}
+
+/* Call to Action Button */
+.cta-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waitlist-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  padding: 0.8125rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.waitlist-button:hover {
+  background-color: var(--color-blue-hover);
+}
+
+.waitlist-button:active {
+  background-color: var(--color-blue-active);
+  transform: scale(0.985);
+}
+
+.waitlist-button:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+/* Footer */
+.footer {
+  flex: 1 1 0%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  width: 100%;
+}
+
+.copyright {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-grey);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* Modal Interaction */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-backdrop);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  z-index: 100;
+}
+
+.modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  max-width: 20rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(16, 17, 20, 0.08);
+  transform: translateY(6px);
+  transition: transform 180ms ease;
+}
+
+.modal-backdrop.is-active .modal {
+  transform: translateY(0);
+}
+
+.modal-text {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+}
+
+.modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-grey);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 0.5rem 1.125rem;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.modal-close:hover {
+  color: var(--color-black);
+  border-color: rgba(16, 17, 20, 0.2);
+  background-color: rgba(16, 17, 20, 0.02);
+}
+
+.modal-close:active {
+  background-color: rgba(16, 17, 20, 0.04);
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+/* Short height screens & compact mobile viewports */
+@media (max-height: 600px) {
+  .page-container {
+    padding-top: 1rem;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .intro-text {
+    margin-bottom: 0.5rem;
+  }
+
+  .headline {
+    font-size: clamp(1.625rem, 3.8vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .supporting-text {
+    margin-bottom: 1.25rem;
+  }
+
+  .waitlist-button {
+    padding: 0.6875rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-height: 480px) {
+  .intro-text {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .headline {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .supporting-text {
+    font-size: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .waitlist-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+}

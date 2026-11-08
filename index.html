@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Taptch</title>
+  <meta name="description" content="Something new is on its way. The future is one tap away.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container" id="pageContainer">
+    <div class="top-spacer" aria-hidden="true"></div>
+
+    <main class="main-content" id="mainContent">
+      <p class="intro-text">Something new is on its way.</p>
+      <h1 class="headline">The future is one tap away.</h1>
+      <p class="supporting-text">You can Tap Soon with Taptch.</p>
+      <div class="cta-wrapper">
+        <button type="button" class="waitlist-button" id="waitlistBtn">
+          Join the Waitlist
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="copyright">&copy; 2026 Taptch</p>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalText">
+      <p class="modal-text" id="modalText">You're on our radar.</p>
+      <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Dismiss notification">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
