@@ -7,7 +7,7 @@
   <meta name="description" content="Something new is on its way. The future is one tap away.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,11 +16,32 @@
 
     <main class="main-content" id="mainContent">
       <p class="intro-text">Something new is on its way.</p>
+      <div class="nfc-signal" aria-hidden="true">
+        <svg class="nfc-svg" viewBox="0 0 64 28" width="52" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Central NFC signal point -->
+          <circle class="nfc-point" cx="32" cy="14" r="2.25" fill="#1677FF" />
+          <!-- Pair 1: Inner waves -->
+          <g class="nfc-wave-pair nfc-wave-1">
+            <path class="nfc-arc" d="M 26.8 9.32 A 7 7 0 0 0 26.8 18.68" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+            <path class="nfc-arc" d="M 37.2 9.32 A 7 7 0 0 1 37.2 18.68" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+          </g>
+          <!-- Pair 2: Middle waves -->
+          <g class="nfc-wave-pair nfc-wave-2">
+            <path class="nfc-arc" d="M 22.34 5.3 A 13 13 0 0 0 22.34 22.7" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+            <path class="nfc-arc" d="M 41.66 5.3 A 13 13 0 0 1 41.66 22.7" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+          </g>
+          <!-- Pair 3: Outer waves -->
+          <g class="nfc-wave-pair nfc-wave-3">
+            <path class="nfc-arc" d="M 17.88 1.29 A 19 19 0 0 0 17.88 26.71" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+            <path class="nfc-arc" d="M 46.12 1.29 A 19 19 0 0 1 46.12 26.71" stroke="#1677FF" stroke-width="1.25" stroke-linecap="round" />
+          </g>
+        </svg>
+      </div>
       <h1 class="headline">The future is one tap away.</h1>
       <p class="supporting-text">You can Tap Soon with Taptch.</p>
       <div class="cta-wrapper">
         <button type="button" class="waitlist-button" id="waitlistBtn">
-          Join the Waitlist
+          Get Ready to Tap
         </button>
       </div>
     </main>
@@ -32,7 +53,7 @@
 
   <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
     <div class="modal" id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalText">
-      <p class="modal-text" id="modalText">You're on our radar.</p>
+      <p class="modal-text" id="modalText">You're one step closer to the tap era.</p>
       <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Dismiss notification">
         Close
       </button>
